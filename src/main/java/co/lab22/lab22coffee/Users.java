@@ -1,25 +1,42 @@
 package co.lab22.lab22coffee;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
-@Component
-public class Client {
-	private String firstName;
-	private String lastName;
+@Entity
+@NamedQuery(name="find_all_users",query="select u from Users u")
+public class Users {
+	@Id  // this is referring to the primary key for hibernate
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	private Integer id;
+	private String firstname;
+	private String lastname;
 	private String email;
-	private String phoneNumber;
+	private String phone;
 	private String password;
-	public String getFirstName() {
-		return firstName;
+	public String getfirstname() {
+		return firstname;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	
+	public Integer getId() {
+		return id;
 	}
-	public String getLastName() {
-		return lastName;
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+
+	public void setfirstname(String firstname) {
+		this.firstname = firstname;
+	}
+	public String getlastname() {
+		return lastname;
+	}
+	public void setlastname(String lastname) {
+		this.lastname = lastname;
 	}
 	public String getEmail() {
 		return email;
@@ -27,11 +44,11 @@ public class Client {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getphone() {
+		return phone;
 	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setphone(String phone) {
+		this.phone = phone;
 	}
 	public String getPassword() {
 		return password;
@@ -39,21 +56,21 @@ public class Client {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Client(String firstName, String lastName, String email, String phoneNumber, String password) {
+	public Users(String firstname, String lastname, String email, String phone, String password) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.firstname = firstname;
+		this.lastname = lastname;
 		this.email = email;
-		this.phoneNumber = phoneNumber;
+		this.phone = phone;
 		this.password = password;
 	}
-	public Client() {
+	public Users() {
 		super();
 	}
 	@Override
 	public String toString() {
-		return "client [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", phoneNumber="
-				+ phoneNumber + ", password=" + password + "]";
+		return "Users [firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + ", phone="
+				+ phone + ", password=" + password + "]";
 	}
 	
 	

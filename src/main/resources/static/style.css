@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.button{
+/* .button{
   border-radius: 25px;
   color : red;
   border: 2px solid #0000ff;
@@ -8,6 +8,11 @@
   padding: 20px; 
   width: 100px;
   height: 10px; 
+} */
+body{
+	text-align:center;
+	margin:5em;
+	background-image: url("background.png");
+	background-size: cover;
 }
-
 
